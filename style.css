@@ -75,7 +75,8 @@ body {
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
-  height: 250px;
+  min-height: 250px;
+  max-height: 500px;
   overflow-y: auto;
   background: #fafafa;
   margin-bottom: 20px;
@@ -186,6 +187,14 @@ body {
   display: flex;
   gap: 15px;
   min-height: 160px;
+  cursor: pointer;
+}
+
+/* Highlight selected product card */
+.product-card.selected {
+  border: 2.5px solid #0072ce;
+  background: #eaf4ff;
+  box-shadow: 0 0 0 2px #b3d8ff;
 }
 
 .product-card img {
@@ -252,4 +261,104 @@ body {
 
 .generate-btn i {
   margin-right: 8px;
+}
+
+/* Hover effect for selected product items in the list */
+.selected-product-item:hover {
+  background: #f0f8ff;
+  border-color: #0072ce;
+}
+
+/* Brand gradients */
+:root {
+  --loreal-black: #000000;
+  --loreal-white: #ffffff;
+  --loreal-gold: #cba135;
+  --loreal-red: #b22222;
+  --garnier-green: #6aa84f;
+  --revitalift-red: #8b0000;
+  --hydra-blue: #00aeef;
+  --menexpert-gray: #333333;
+}
+
+/* Gradient accent for buttons */
+.button-primary,
+.generate-btn {
+  background: linear-gradient(90deg, var(--loreal-gold), var(--loreal-red));
+  color: var(--loreal-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(203, 161, 53, 0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.button-primary:hover,
+.generate-btn:hover {
+  box-shadow: 0 4px 16px rgba(178, 34, 34, 0.18);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Product card with gradient border */
+.product-card {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: var(--loreal-white);
+  background-clip: padding-box;
+  position: relative;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.product-card.selected {
+  border: 2.5px solid;
+  border-image: linear-gradient(90deg, var(--loreal-gold), var(--loreal-red)) 1;
+  box-shadow: 0 0 0 4px rgba(203, 161, 53, 0.1);
+}
+
+/* Section title with gradient underline */
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 48px;
+  margin-top: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--loreal-gold), var(--loreal-red));
+}
+
+/* Chat bubbles */
+.chat-bubble.user {
+  background: var(--loreal-white);
+  border: 1.5px solid var(--loreal-gold);
+  color: var(--loreal-black);
+  border-radius: 12px 12px 4px 12px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+}
+.chat-bubble.ai {
+  background: linear-gradient(90deg, #fffbe6 80%, #ffe4e1 100%);
+  border-left: 4px solid var(--loreal-red);
+  color: var(--loreal-black);
+  border-radius: 12px 12px 12px 4px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+}
+
+/* Brand accent for Garnier, Hydra, etc. */
+.product-card.garnier {
+  box-shadow: 0 0 0 2px var(--garnier-green);
+}
+.product-card.hydra {
+  box-shadow: 0 0 0 2px var(--hydra-blue);
+}
+.product-card.revitalift {
+  box-shadow: 0 0 0 2px var(--revitalift-red);
+}
+.product-card.menexpert {
+  box-shadow: 0 0 0 2px var(--menexpert-gray);
 }
